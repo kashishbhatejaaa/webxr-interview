@@ -13,9 +13,18 @@
         <a-entity position="0 1.6 -3">
             <a-camera></a-camera>
         </a-entity>
+    
         <a-plane rotation="-90 0 0" width="10" height="10" color="#7BC8A4"></a-plane>
-        <a-box position="0 1 -5" color="#FF5733" depth="0.5" height="1.5" width="0.5"></a-box>
+        
+        <a-box position="0 1 -5" color="#FF5733" depth="0.5" height="1.5" width="0.5" id="interviewer" class="clickable"></a-box>
+    
+        <a-box position="-5 1 -5" color="#CCCCCC" depth="0.1" height="2" width="1" static-body></a-box>
+        <a-box position="5 1 -5" color="#CCCCCC" depth="0.1" height="2" width="1" static-body></a-box>
+        <a-box position="0 1 -2.5" color="#CCCCCC" depth="0.1" height="2" width="10" static-body></a-box>
     </a-scene>
+    <div id="interviewer-info">
+        <h2>Interviewer</h2>
+        <p>Click on the interviewer to start the interview</p>    
     <script src="script.js"></script>
 </body>
 </html>
