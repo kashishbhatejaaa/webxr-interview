@@ -7,16 +7,13 @@ document.addEventListener('DOMContentLoaded', () => {
           "What is your biggest weakness?",
           "Why do you want to work here?",
           "Where do you see yourself in five years?",
-          "Why should we hire you?"
+          "Why shoulda we hire you?"
         ];
         const button = this.el;
         const sceneEl = document.querySelector('a-scene');
         const modelEl = document.querySelector('#model');
 
-        if (!sceneEl) {
-          console.error('A-Frame scene element not found.');
-          return;
-        }
+        if (!sceneEl) return;
 
         button.addEventListener('click', function () {
           const oldText = document.querySelector('#questionText');
@@ -33,11 +30,16 @@ document.addEventListener('DOMContentLoaded', () => {
           sceneEl.appendChild(questionText);
 
           if (modelEl) {
-            modelEl.setAttribute('position', '0 1 -3');
-          } else {
-            console.error('3D model entity not found.');
+            modelEl.setAttribute('position', '0 0.45 -4');
           }
         });
+
+        if (typeof DeviceOrientationEvent.requestPermission === 'function') {
+          DeviceOrientationEvent.requestPermission()
+            .then(permissionState => {
+              if (permissionState === 'granted') {}
+            }).catch(console.error);
+        }
       }
     });
   }
